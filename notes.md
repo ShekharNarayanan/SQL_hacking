@@ -29,7 +29,7 @@ non relational:
 ### COMMANDS Summary: SELECT TOP, DISTINCT, HAVING, CREATE, ALTER, DROP COLUMN/ TABLE, INSERT INTO, VALUES
 ### Notes: If inserting data into specific columns of a table, make sure to specify the VALUES accordingly
 
-###Order of queries: 
+### Order of queries: 
     1. SELECT DISTINCT TOP 2 (select data, make it distinct, pick the top 2 vals corresponding to..)
     2. SUM(col2) as sum_col2 (make an aggregate of columns 2)
     3. FROM Table
@@ -46,3 +46,7 @@ non relational:
 	5. SELECT DISTINCT
     6. ORDER BY
     7. TOP
+
+##  THIRD Day (~ 3 hour mark)
+### COMMANDS Summary: UPDATE, DELETE, TRUNCATE, AND/OR/NOT, LIKE
+### Notes: 
