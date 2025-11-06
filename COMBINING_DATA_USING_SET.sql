@@ -1,0 +1,3 @@
+-- SET: joing rows of multiple tables -- 
+-- types: union, union all, except, intersect --
+-- should have same number of columns -- 
