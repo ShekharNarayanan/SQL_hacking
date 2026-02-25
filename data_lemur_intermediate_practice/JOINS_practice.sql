@@ -31,3 +31,15 @@ INNER JOIN users
   AND trades.status = 'Completed'
 GROUP BY users.city
 ORDER BY total_orders DESC LIMIT 3
+
+-- problem statement: Assume you're given two tables containing data about 
+-- Facebook Pages and their respective likes (as in "Like a Facebook Page").
+-- Write a query to return the IDs of the Facebook pages that have zero likes. 
+--The output should be sorted in ascending order based on the page IDs.
+SELECT pages.page_id
+FROM pages 
+LEFT JOIN page_likes 
+  ON pages.page_id = page_likes.page_id 
+WHERE page_likes.liked_date IS NULL -- I tried the same code with AND page_likes.liked_date IS NULL and that didnt work (there are no NULL values in page_likes)
+ORDER BY page_id
+

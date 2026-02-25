@@ -167,23 +167,61 @@ FROM intermediate_table;
 
 ------------------------------------------------------------------------
 
-# 7. Key Concepts to Master
+# 7. SQL JOINS
 
--   Difference between WHERE and CASE
--   Logical vs execution order
--   Grouping vs filtering
--   Conditional aggregation
--   Data reshaping (wide vs long format)
--   Clean query structure
+-   **INNER JOIN** → Returns only rows where there is a match in both
+    tables (intersection of two tables).
+-   **LEFT JOIN (LEFT OUTER JOIN)** → Returns all rows from the left
+    table, and matching rows from the right table. Non-matches on the
+    right become `NULL`.
+-   **RIGHT JOIN (RIGHT OUTER JOIN)** → Returns all rows from the right
+    table, and matching rows from the left table. Non-matches on the
+    left become `NULL`.
+-   **FULL OUTER JOIN** → Returns all rows from both tables.
+    Non-matching rows from either side contain `NULL` values.
+-   Join behavior depends on **where filtering conditions are placed**
+    (`ON` vs `WHERE`), especially with outer joins.
 
 ------------------------------------------------------------------------
 
-# Progress Tracking 
-## Personal notes:
-1. Order of execution matters more than I thought -> need to focus more on it before writing a query.
-2. Identifying which commands can be used in the query is half of the answer for questions.
+## Basic JOIN Syntax
 
-## Areas of confusion
-1. Learning how a non-sequential language works
+``` sql
+SELECT *
+FROM trades
+JOIN users
+  ON trades.user_id = users.user_id;
+```
+
+------------------------------------------------------------------------
+
+## Aggregation After JOIN (Example Pattern)
+
+``` sql
+SELECT users.city,
+       COUNT(trades.order_id) AS total_orders
+FROM trades
+INNER JOIN users
+  ON trades.user_id = users.user_id
+  AND trades.status = 'Completed'
+GROUP BY users.city
+ORDER BY total_orders DESC
+LIMIT 3;
+```
+
+------------------------------------------------------------------------
+
+## LEFT JOIN to Find Missing Matches
+
+``` sql
+SELECT pages.page_id
+FROM pages
+LEFT JOIN page_likes
+  ON pages.page_id = page_likes.page_id
+WHERE page_likes.liked_date IS NULL
+ORDER BY page_id;
+```
+
+
 
 
