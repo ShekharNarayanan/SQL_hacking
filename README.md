@@ -222,6 +222,28 @@ WHERE page_likes.liked_date IS NULL
 ORDER BY page_id;
 ```
 
+# 8. DATE TIME FEATURE EXTRACTION
+1. `EXTRACT(YEAR FROM date_column)` used for getting specific parts of dates. You can replace YEAR with DAY or MONTH as well.
+2. `DATE_TRUNC` rounds the date down to a specific unit i.e.  `DATE_TRUNC('month', sent_date) AS truncated_to_month`
+2. `DATE_TRUNC` rounds the date down to a specific unit i.e.  `DATE_TRUNC('month', sent_date) AS truncated_to_month`
+3. `INTERVAL` you can modify date strings easily by using `INTERVAL`. For example `sent_date + INTERVAL '2 days'` adds 2 days of time in the given timestamp
+4. `TO_CHAR` is used to reformat dates into specific formats. For instance - ` TO_CHAR(sent_date, 'YYYY-MM-DD HH:MI:SS') AS formatted_iso8601`
+5. `::DATE or TO_DATE()` converts strings into dates.
+6. `::TIMESTAMP` or `TO_TIMESTAMP()` converts strings into timestamps.
+7. You can also use `MIN()` and `MAX()` with dates clubbed with the functions above to solve certain problems.
+
+For example:
+```
+SELECT user_id, 
+      EXTRACT(DAY FROM (MAX(post_date) - MIN(post_date))) as days_between
+FROM posts
+WHERE EXTRACT(YEAR FROM post_date) = 2021
+GROUP BY user_id
+HAVING COUNT(user_id) >= 2
+```
+
+
+
 
 
 
