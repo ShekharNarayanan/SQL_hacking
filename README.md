@@ -24,6 +24,8 @@
     System)**
 -   Databases live on servers (persistent + accessible)
 
+[↑ Back to top](#index)
+
 ------------------------------------------------------------------------
 
 # 1. Database Fundamentals
@@ -50,6 +52,8 @@ efficiently - Manages permissions & performance
 3.  **Graph-based** -- focuses on relationships between entities\
 4.  **Document-based** -- stores flexible JSON-like documents (e.g.,
     MongoDB)
+
+[↑ Back to top](#index)
 
 ------------------------------------------------------------------------
 
@@ -90,6 +94,8 @@ ORDER BY column ASC;
 
    
 Note: Columns made using alternate methods like `SELECT SUM(COL) as COL1` are not recognized by `GROUP BY`.
+[↑ Back to top](#index)
+
 ------------------------------------------------------------------------
 
 # 3. Additional Commands (Level 2)
@@ -109,6 +115,8 @@ Note: Columns made using alternate methods like `SELECT SUM(COL) as COL1` are no
 
 Note: When inserting into specific columns, ensure VALUES match the
 selected columns.
+
+[↑ Back to top](#index)
 
 ------------------------------------------------------------------------
 
@@ -140,6 +148,8 @@ END
 -   Often used inside `SELECT`
 -   Can be used inside aggregates (conditional aggregation)
 
+[↑ Back to top](#index)
+
 ------------------------------------------------------------------------
 
 # 5. Aggregation Concepts
@@ -159,6 +169,8 @@ SUM(CASE WHEN condition THEN column ELSE 0 END)
 ```
 
 Used to segment metrics in a single query.
+
+[↑ Back to top](#index)
 
 ------------------------------------------------------------------------
 
@@ -180,6 +192,8 @@ FROM intermediate_table;
 -   Improves readability
 -   Breaks complex problems into steps
 -   Exists only for that query
+
+[↑ Back to top](#index)
 
 ------------------------------------------------------------------------
 
@@ -238,6 +252,8 @@ WHERE page_likes.liked_date IS NULL
 ORDER BY page_id;
 ```
 
+[↑ Back to top](#index)
+
 # 8. DATE TIME FEATURE EXTRACTION
 1. `EXTRACT(YEAR FROM date_column)` used for getting specific parts of dates. You can replace YEAR with DAY or MONTH as well.
 2. `DATE_TRUNC` rounds the date down to a specific unit i.e.  `DATE_TRUNC('month', sent_date) AS truncated_to_month`
@@ -256,3 +272,5 @@ WHERE EXTRACT(YEAR FROM post_date) = 2021
 GROUP BY user_id
 HAVING COUNT(user_id) >= 2
 ```
+
+[↑ Back to top](#index)
