@@ -1,5 +1,21 @@
 # SQL Practice Notes
 
+## Index
+
+- [0. Why SQL?](#0-why-sql)
+- [1. Database Fundamentals](#1-database-fundamentals)
+  - [1.1 What is a DBMS?](#11-what-is-a-dbms)
+  - [1.2 Database Types](#12-database-types)
+- [2. Core SQL Commands](#2-core-sql-commands-level-1)
+- [3. Additional Commands](#3-additional-commands-level-2)
+- [4. NULL Handling & Conditional Logic](#4-null-handling--conditional-logic-level-3)
+- [5. Aggregation Concepts](#5-aggregation-concepts)
+- [6. Intermediate Query Structures](#6-intermediate-query-structures)
+- [7. SQL JOINS](#7-sql-joins)
+- [8. Date Time Feature Extraction](#8-date-time-feature-extraction)
+
+---
+
 ## 0. Why SQL?
 
 -   Used to query large datasets efficiently (Excel breaks at scale)
@@ -225,7 +241,6 @@ ORDER BY page_id;
 # 8. DATE TIME FEATURE EXTRACTION
 1. `EXTRACT(YEAR FROM date_column)` used for getting specific parts of dates. You can replace YEAR with DAY or MONTH as well.
 2. `DATE_TRUNC` rounds the date down to a specific unit i.e.  `DATE_TRUNC('month', sent_date) AS truncated_to_month`
-2. `DATE_TRUNC` rounds the date down to a specific unit i.e.  `DATE_TRUNC('month', sent_date) AS truncated_to_month`
 3. `INTERVAL` you can modify date strings easily by using `INTERVAL`. For example `sent_date + INTERVAL '2 days'` adds 2 days of time in the given timestamp
 4. `TO_CHAR` is used to reformat dates into specific formats. For instance - ` TO_CHAR(sent_date, 'YYYY-MM-DD HH:MI:SS') AS formatted_iso8601`
 5. `::DATE or TO_DATE()` converts strings into dates.
@@ -241,9 +256,3 @@ WHERE EXTRACT(YEAR FROM post_date) = 2021
 GROUP BY user_id
 HAVING COUNT(user_id) >= 2
 ```
-
-
-
-
-
-
